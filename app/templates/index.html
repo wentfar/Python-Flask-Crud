@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工温度</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+</head>
+<body>
+    <a href="{{ url_for('TempBp.new') }}">新增记录</a>
+    <a href="{{ url_for('TempBp.get') }}">查询</a>
+
+    <h4> 员工数:  {{ temperatures|length }}</h4>
+
+    <table>
+        <tr>
+            <th>id</th>
+            <th>员工编号</th>
+            <th>温度</th>
+            <th>日期</th>
+{#            <th>更新时间</th>#}
+        </tr>
+
+        {% for temperature in temperatures %}
+            <tr>
+                <td> {{temperature.id}} </td>
+                <td> {{temperature.employeeId}} </td>
+                <td> {{temperature.temperature}} </td>
+                <td> {{temperature.createdAt}} </td>
+{#                <td> {{temperature.updatedAt}} </td>#}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

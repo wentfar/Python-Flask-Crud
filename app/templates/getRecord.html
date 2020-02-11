@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询记录</title>
+</head>
+<body>
+<h2>查询记录</h2>
+
+<form method="POST" action="/get">
+    <p>{{ form.employeeId.label }} {{ form.employeeId }} {{ form.employeeId.errors[0] }}</p>
+    <p>{{ form.recordDate.label }} {{ form.recordDate }} {{ form.recordDate.errors[0] }}</p>
+    <div><input type="submit" name="get" value="查询" style="align-self: center"></div>
+</form>
+</body>
+</html>
