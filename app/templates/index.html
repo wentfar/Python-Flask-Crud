@@ -6,27 +6,30 @@
     <link rel="stylesheet" type="text/css" href="../static/styles.css">
 </head>
 <body>
-    <a href="{{ url_for('TempBp.new') }}">新增记录</a>
-    <a href="{{ url_for('TempBp.query') }}">查询</a>
 
-    <h4> 员工数:  {{ temperatures|length }}</h4>
 
-    <table>
+<h4> 员工数: {{ temperatures|length }}</h4>
+
+<table>
+    <tr>
+        <th>id</th>
+        <th>员工编号</th>
+        <th>温度</th>
+        <th>日期</th>
+    </tr>
+
+    {% for temperature in temperatures %}
         <tr>
-            <th>id</th>
-            <th>员工编号</th>
-            <th>温度</th>
-            <th>日期</th>
+            <td> {{ temperature.id }} </td>
+            <td> {{ temperature.employeeId }} </td>
+            <td> {{ temperature.temperature }} </td>
+            <td> {{ temperature.createdAt }} </td>
         </tr>
+    {% endfor %}
+</table>
 
-        {% for temperature in temperatures %}
-            <tr>
-                <td> {{temperature.id}} </td>
-                <td> {{temperature.employeeId}} </td>
-                <td> {{temperature.temperature}} </td>
-                <td> {{temperature.createdAt}} </td>
-            </tr>
-        {% endfor %}
-    </table>
+
+<a href="{{ url_for('TempBp.new') }}">新增记录</a>
+<a href="{{ url_for('TempBp.query') }}">查询</a>
 </body>
 </html>

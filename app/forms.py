@@ -20,7 +20,7 @@ class NewForm(Form):
                              widget=widgets.TextInput(),
                              render_kw={'class': 'text'}
                              )
-    submit = SubmitField('save')
+    submit = SubmitField('new')
 
 
 class QueryForm(Form):

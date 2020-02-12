@@ -8,20 +8,24 @@
 <h2>新记录</h2>
 
 <form method="POST" action="/new">
-    {#    <table>#}
-    {#        <tr>#}
-    {#            <td>员工编号</td>#}
-    {#            <td><input type="text" name="employeeId"></td>#}
-    {#        </tr>#}
-    {#        <tr>#}
-    {#            <td>温度</td>#}
-    {#            <td><input type="text" name="temperature"></td>#}
-    {#        </tr>#}
-    {#    </table>#}
-
-    <p>{{ form.employeeId.label }} {{ form.employeeId }} {{ form.employeeId.errors[0] }}</p>
-    <p>{{ form.temperature.label }} {{ form.temperature }} {{ form.temperature.errors[0] }}</p>
-    <div><input type="submit" name="save" value="新增" style="align-self: center"></div>
+    <table>
+        <tr>
+            <td>{{ form.employeeId.label }}</td>
+            <td>{{ form.employeeId }}</td>
+            <td>{{ form.employeeId.errors[0] }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.temperature.label }}</td>
+            <td>{{ form.temperature }} </td>
+            <td>{{ form.temperature.errors[0] }}</td>
+        </tr>
+    </table>
+    <div><input type="submit" name="new" value="新增" style="align-self: center"></div>
 </form>
+
+
+<a href="{{ url_for('TempBp.index') }}">统计</a>
+<a href="{{ url_for('TempBp.query') }}">查询</a>
+
 </body>
 </html>

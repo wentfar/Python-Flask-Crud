@@ -8,7 +8,7 @@ tempBp = Blueprint('TempBp', __name__, template_folder='templates')
 
 
 @tempBp.route('/index')
-@tempBp.route('/')
+# @tempBp.route('/')
 def index():
     temperatureDao = TemperatureDao()
     temperatures = temperatureDao.list_all()
