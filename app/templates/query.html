@@ -9,7 +9,7 @@
 
 
 <form method="POST" action="/query">
-     <table>
+    <table>
         <tr>
             <td>{{ form.employeeId.label }}</td>
             <td>{{ form.employeeId }}</td>
@@ -41,7 +41,7 @@
             <td> {{ temperature.id }} </td>
             <td> {{ temperature.employeeId }} </td>
             <td> {{ temperature.temperature }} </td>
-            <td> truncate({{ temperature.createdAt }}, 10,false) </td>
+            <td>{{ temperature.createdAt.strftime('%Y-%m-%d') }} </td>
         </tr>
     {% endfor %}
 </table>

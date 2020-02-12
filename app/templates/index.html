@@ -23,7 +23,7 @@
             <td> {{ temperature.id }} </td>
             <td> {{ temperature.employeeId }} </td>
             <td> {{ temperature.temperature }} </td>
-            <td> {{ temperature.createdAt }} </td>
+            <td> {{ temperature.createdAt.strftime('%Y-%m-%d') }} </td>
         </tr>
     {% endfor %}
 </table>
