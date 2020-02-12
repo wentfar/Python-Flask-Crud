@@ -20,7 +20,7 @@
 
     {% for temperature in temperatures|sort(attribute='temperature', reverse=true) %}
         <tr>
-            <td> {{ temperature.id }} </td>
+{#            <td> {{ temperature.id }} </td>#}
             <td> {{ temperature.employeeId }} </td>
             <td> {{ temperature.temperature }} </td>
             <td> {{ temperature.createdAt.strftime('%Y-%m-%d') }} </td>
