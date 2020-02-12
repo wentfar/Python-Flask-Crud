@@ -1,7 +1,8 @@
+#encoding=utf-8
+
 from flask import request, render_template, Blueprint, flash, redirect, url_for
 from app.services import TemperatureDao
 from app.forms import *
-from app.utils import datetime2date
 import datetime
 
 tempBp = Blueprint('TempBp', __name__, template_folder='templates')
@@ -51,7 +52,10 @@ def new():
 
             temperatureDao = TemperatureDao()
             message = temperatureDao.saveOrUpdate(employeeId, temperature)
+            message = u'员工' + message + u'，信息上传成功';
+            flash(message)
 
-            return redirect(url_for('TempBp.index'))
+            # return redirect(url_for('TempBp.index'))
+            return render_template('new.html', form=form)
         else:
             return render_template('new.html', form=form)

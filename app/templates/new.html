@@ -23,6 +23,17 @@
     <div><input type="submit" name="new" value="新增" style="align-self: center"></div>
 </form>
 
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{message}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+
 
 <a href="{{ url_for('TempBp.index') }}">统计</a>
 <a href="{{ url_for('TempBp.query') }}">查询</a>

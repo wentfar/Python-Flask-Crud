@@ -28,7 +28,7 @@ class TemperatureDao():
         else:
             db.session.add(temperatureObj)
             db.session.commit()
-        return "employeeId " + employeeId + " info upload success!"
+        return employeeId
 
 
 
