@@ -32,7 +32,7 @@ def query():
             temperatures = temperatureDao.queryByEmployeeIdAndDate(employeeId, recordDate)
             if (temperatures is None):
                 temperatures = []
-            return render_template('index.html', temperatures=temperatures)
+            return render_template('query.html', temperatures=temperatures, form=form)
         else:
             return render_template('query.html', form=form)
 
@@ -55,7 +55,6 @@ def new():
             message = u'员工' + message + u'，信息上传成功';
             flash(message)
 
-            # return redirect(url_for('TempBp.index'))
             return render_template('new.html', form=form)
         else:
             return render_template('new.html', form=form)

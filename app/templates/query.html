@@ -9,11 +9,46 @@
 
 
 <form method="POST" action="/query">
-    <p>{{ form.employeeId.label }} {{ form.employeeId }} {{ form.employeeId.errors[0] }}</p>
-    <p>{{ form.recordDate.label }} {{ form.recordDate }} {{ form.recordDate.errors[0] }}</p>
+     <table>
+        <tr>
+            <td>{{ form.employeeId.label }}</td>
+            <td>{{ form.employeeId }}</td>
+            <td>{{ form.employeeId.errors[0] }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.recordDate.label }}</td>
+            <td>{{ form.recordDate }} </td>
+            <td>{{ form.recordDate.errors[0] }}</td>
+        </tr>
+    </table>
+
     <div><input type="submit" name="query" value="查询" style="align-self: center"></div>
 </form>
 
+
+<h3>查询结果</h3>
+
+<table border="1">
+    <tr>
+        <td align="center">id</td>
+        <td align="center">员工编号</td>
+        <td align="center">温度</td>
+        <td align="center">日期</td>
+    </tr>
+
+    {% for temperature in temperatures %}
+        <tr>
+            <td> {{ temperature.id }} </td>
+            <td> {{ temperature.employeeId }} </td>
+            <td> {{ temperature.temperature }} </td>
+            <td> {{ temperature.createdAt }} </td>
+        </tr>
+    {% endfor %}
+</table>
+
+<br></br>
+<br></br>
+<br></br>
 
 <a href="{{ url_for('TempBp.index') }}">统计</a>
 <a href="{{ url_for('TempBp.new') }}">新增</a>
