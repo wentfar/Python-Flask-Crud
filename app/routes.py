@@ -53,8 +53,8 @@ def new():
             temperatureDao = TemperatureDao()
             message = temperatureDao.saveOrUpdate(employeeId, temperature)
             message = u'员工' + message + u'，信息上传成功';
-            flash(message)
+            # flash(message)
 
-            return render_template('new.html', form=form)
+            return render_template('new.html', form=form, message=message)
         else:
             return render_template('new.html', form=form)
