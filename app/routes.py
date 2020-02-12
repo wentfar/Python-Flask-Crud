@@ -8,20 +8,21 @@ tempBp = Blueprint('TempBp', __name__, template_folder='templates')
 
 
 @tempBp.route('/index')
+@tempBp.route('/')
 def index():
     temperatureDao = TemperatureDao()
     temperatures = temperatureDao.list_all()
     return render_template('index.html', temperatures=temperatures)
 
 
-@tempBp.route('/get', methods=['GET', 'POST'])
-def get():
+@tempBp.route('/query', methods=['GET', 'POST'])
+def query():
     if request.method == 'GET':
-        form = GetForm()
-        return render_template('getRecord.html', form=form)
+        form = QueryForm()
+        return render_template('query.html', form=form)
 
     if request.method == 'POST':
-        form = GetForm(formdata=request.form)
+        form = QueryForm(formdata=request.form)
         if form.validate():
             employeeId = form.data['employeeId']
             recordDate = form.data['recordDate']
@@ -32,17 +33,17 @@ def get():
                 temperatures = []
             return render_template('index.html', temperatures=temperatures)
         else:
-            return render_template('getRecord.html', form=form)
+            return render_template('query.html', form=form)
 
 
 @tempBp.route('/new', methods=['GET', 'POST'])
 def new():
     if request.method == 'GET':
-        form = NewTempForm()
-        return render_template('newRecord.html', form=form)
+        form = NewForm()
+        return render_template('new.html', form=form)
 
     if request.method == 'POST':
-        form = NewTempForm(formdata=request.form)
+        form = NewForm(formdata=request.form)
         if form.validate():
 
             employeeId = form.data['employeeId']
@@ -53,4 +54,4 @@ def new():
 
             return redirect(url_for('TempBp.index'))
         else:
-            return render_template('newRecord.html', form=form)
+            return render_template('new.html', form=form)

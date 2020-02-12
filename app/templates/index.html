@@ -7,7 +7,7 @@
 </head>
 <body>
     <a href="{{ url_for('TempBp.new') }}">新增记录</a>
-    <a href="{{ url_for('TempBp.get') }}">查询</a>
+    <a href="{{ url_for('TempBp.query') }}">查询</a>
 
     <h4> 员工数:  {{ temperatures|length }}</h4>
 
@@ -17,7 +17,6 @@
             <th>员工编号</th>
             <th>温度</th>
             <th>日期</th>
-{#            <th>更新时间</th>#}
         </tr>
 
         {% for temperature in temperatures %}
@@ -26,7 +25,6 @@
                 <td> {{temperature.employeeId}} </td>
                 <td> {{temperature.temperature}} </td>
                 <td> {{temperature.createdAt}} </td>
-{#                <td> {{temperature.updatedAt}} </td>#}
             </tr>
         {% endfor %}
     </table>

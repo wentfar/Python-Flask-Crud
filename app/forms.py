@@ -5,7 +5,7 @@ import datetime
 from wtforms.fields.html5 import DateField
 
 
-class NewTempForm(Form):
+class NewForm(Form):
     employeeId = StringField(label=u'员工编号',
                              validators=[
                                  validators.DataRequired(message=u'员工编号不能为空'),
@@ -23,7 +23,7 @@ class NewTempForm(Form):
     submit = SubmitField('save')
 
 
-class GetForm(Form):
+class QueryForm(Form):
     employeeId = StringField(label=u'员工编号',
                              validators=[
                                  validators.DataRequired(message=u'员工编号不能为空'),
@@ -39,4 +39,4 @@ class GetForm(Form):
                            default=datetime.datetime.today(),
                            render_kw={'class': 'datepicker'})
 
-    submit = SubmitField('get')
+    submit = SubmitField('query')
