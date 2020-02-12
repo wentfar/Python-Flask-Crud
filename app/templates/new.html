@@ -27,18 +27,18 @@
     <div><input type="submit" name="new" value="新增" style="align-self: center"></div>
     <div><label>注意：当天多次提交以最后一次为准</label></div>
 </form>
-<ul>
-    <li>{{ message }}</li>
-</ul>
-{#{% with messages = get_flashed_messages() %}#}
-{#    {% if messages %}#}
-{#        <ul>#}
-{#            {% for message in messages %}#}
-{#                <li>{{message}}</li>#}
-{#            {% endfor %}#}
-{#        </ul>#}
-{#    {% endif %}#}
-{#{% endwith %}#}
+{#<ul>#}
+{#    <li>{{ message }}</li>#}
+{#</ul>#}
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{message}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
 
 <br></br>
 

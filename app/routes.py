@@ -51,9 +51,9 @@ def new():
             temperature = form.data['temperature']
 
             temperatureDao = TemperatureDao()
-            message = temperatureDao.saveOrUpdate(employeeId, temperature)
-            message = u'员工' + message + u'，信息上传成功';
-            # flash(message)
+            resultId = temperatureDao.saveOrUpdate(employeeId, temperature)
+            message = u'员工' + resultId + u'，信息上传成功';
+            flash(message)
 
             return render_template('new.html', form=form, message=message)
         else:
