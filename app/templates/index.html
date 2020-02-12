@@ -18,7 +18,7 @@
         <th>日期</th>
     </tr>
 
-    {% for temperature in temperatures %}
+    {% for temperature in temperatures|sort(attribute='temperature', reverse=true) %}
         <tr>
             <td> {{ temperature.id }} </td>
             <td> {{ temperature.employeeId }} </td>
