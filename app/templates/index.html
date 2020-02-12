@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>员工温度</title>
+　　<meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="stylesheet" type="text/css" href="../static/styles.css">
 </head>
 <body>
@@ -12,7 +15,7 @@
 
 <table border="1">
     <tr>
-{#        <th>id</th>#}
+        {#        <th>id</th>#}
         <th>员工编号</th>
         <th>温度</th>
         <th>日期</th>
@@ -20,7 +23,7 @@
 
     {% for temperature in temperatures|sort(attribute='temperature', reverse=true) %}
         <tr>
-{#            <td> {{ temperature.id }} </td>#}
+            {#            <td> {{ temperature.id }} </td>#}
             <td> {{ temperature.employeeId }} </td>
             <td> {{ temperature.temperature }} </td>
             <td> {{ temperature.createdAt.strftime('%Y-%m-%d') }} </td>

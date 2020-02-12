@@ -12,15 +12,15 @@ class NewForm(Form):
                                  validators.regexp('\d{6}', message=u'必须为6位数字'),
                                  validators.Length(min=6, max=6, message=u'员工编号长度必须为%(min)d')],
                              widget=widgets.TextInput(),
-                             render_kw={'class': 'text'}
+                             render_kw={'class': 'form-control'}
                              )
     temperature = FloatField(label=u'体温',
                              validators=[
                                  validators.DataRequired(message=u'体温格式不正确')],
                              widget=widgets.TextInput(),
-                             render_kw={'class': 'text'}
+                             render_kw={'class': 'form-control'}
                              )
-    submit = SubmitField('new')
+    new = SubmitField(render_kw='btn btn-success')
 
 
 class QueryForm(Form):
@@ -30,7 +30,7 @@ class QueryForm(Form):
                                  validators.regexp('\d{6}', message=u'必须为6位数字'),
                                  validators.Length(min=6, max=6, message=u'员工编号长度必须为%(min)d')],
                              widget=widgets.TextInput(),
-                             render_kw={'class': 'text'}
+                             render_kw={'class': 'form-control'}
                              )
 
     recordDate = DateField(label=u'日期',
@@ -39,4 +39,4 @@ class QueryForm(Form):
                            default=datetime.datetime.today(),
                            render_kw={'class': 'datepicker'})
 
-    submit = SubmitField('query')
+    query = SubmitField(render_kw='btn btn-success')
